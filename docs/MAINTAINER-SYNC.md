@@ -19,6 +19,7 @@ If yes, open or update an issue here in the same development cycle. Port the reg
 ## Release discipline
 
 - Keep `main` deployable in simulator mode without credentials.
+- Keep `pnpm build` Next-only and `pnpm build:agent` Eve-only; build both from the repository root.
 - Pin beta infrastructure intentionally and review release notes.
 - Add entries to `CHANGELOG.md` for user-visible or architectural changes.
 - Run `pnpm check` and deployed evals before tagging a release.

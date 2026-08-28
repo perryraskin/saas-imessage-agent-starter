@@ -17,8 +17,8 @@ export default function Home() {
         <h1>Give your SaaS a great iMessage agent.</h1>
         <p className="lede">A production-minded starting point for meeting users where they already are—without turning your model into an unaudited database client.</p>
         <div className="actions">
-          <a className="primary" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fperryraskin%2Fsaas-imessage-agent-starter&project-name=saas-imessage-agent&repository-name=saas-imessage-agent">Deploy simulator to Vercel</a>
-          <a className="secondary" href="https://github.com/perryraskin/saas-imessage-agent-starter">View on GitHub</a>
+          <a className="primary" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBulletApps%2Fsaas-imessage-agent-starter&project-name=saas-imessage-agent&repository-name=saas-imessage-agent">Deploy simulator to Vercel</a>
+          <a className="secondary" href="https://github.com/BulletApps/saas-imessage-agent-starter">View on GitHub</a>
         </div>
       </section>
 

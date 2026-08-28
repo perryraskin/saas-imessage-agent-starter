@@ -1,62 +1,82 @@
 # Architecture
 
-## Boundary
+## Production boundary
 
-The repository uses two logical services on one Vercel origin:
+Use one repository and three independently deployable Vercel projects:
 
-- The Next.js product boundary verifies Linq webhooks, accepts events into Vercel Workflow, resolves linked actors, executes domain tools, sends replies, and owns analytics.
-- Eve owns durable conversation orchestration, model/tool selection, channel events, traces, and evals.
+```text
+iMessage / Linq
+       │ signed webhook
+       ▼
+Channel adapter (Next.js + Workflow + Linq connector)
+       │ authenticated turn
+       ▼
+Standalone Eve service
+       │                         │
+       │ actor-scoped tools      └── provider delivery
+       ▼                                  ▼
+Canonical SaaS app               Channel adapter
+authorization + data             native render + Linq send
+```
 
-Eve calls the product boundary with a shared internal secret and an authenticated actor derived from a previously verified channel binding. Eve never receives your product database credentials.
+The split is about ownership, not extra databases:
 
-### Keep three directional origins separate
+- The **canonical SaaS project** owns users, authorization, domain data, mutations, audit/undo records, and the product UI.
+- The **channel adapter project** verifies Linq webhooks, owns consent and account bindings, accepts encrypted events into Vercel Workflow, applies channel policy, and delivers through the Linq connector.
+- The **standalone Eve project** owns durable conversation orchestration, model/tool selection, channel events, traces, and evals. It has no product database or provider credential.
 
-One-project deployments may use one hostname, but the code treats these directions separately so a later project split cannot silently drop messages:
+All three projects may deploy from the same repository. Keep the Vercel Root Directory blank. Build the two Next.js projects with `pnpm build`; build the standalone Eve project from the repository root with `pnpm build:agent`. The nested `agent/` folder is Eve's authored source layout, not a separate package.
 
-| Direction | Default | Explicit override |
+The deploy button creates only the safe simulator project. A real channel requires the three-project setup below.
+
+## Explicit directional origins
+
+These paths must never share one catch-all origin in a deployed environment:
+
+| Direction | Required setting | Destination |
 | --- | --- | --- |
-| Next.js ingress → Eve | Current channel deployment | `AGENT_SERVICE_ORIGIN` |
-| Eve → canonical SaaS data tools | `SAAS_APP_URL` | `SAAS_INTERNAL_API_ORIGIN` |
-| Eve → provider delivery route | Current channel deployment | `CHANNEL_DELIVERY_ORIGIN` |
+| Channel adapter → Eve | `AGENT_SERVICE_ORIGIN` | Standalone Eve project |
+| Eve → canonical SaaS tools | `SAAS_INTERNAL_API_ORIGIN` | Canonical SaaS project |
+| Eve → provider delivery | `CHANNEL_DELIVERY_ORIGIN` | Connector-owning channel adapter |
 
-When Eve runs in an isolated Vercel project, data tools must cross to the canonical SaaS, while provider delivery must return to the project that owns the Linq connector. Never reuse the canonical data-tool origin for dispatch or delivery. Production origin resolution fails closed when the required boundary cannot be derived.
+The resolvers fail closed on Vercel when an explicit destination is missing. This prevents an accepted webhook or successful Eve turn from silently calling the wrong project.
+
+Use one independent 32+ character `AGENT_INTERNAL_SECRET` value across the three authenticated service boundaries. Scope all other credentials narrowly:
+
+- Product database/auth credentials: canonical SaaS project only.
+- Linq connector and event-sealing key: channel adapter only.
+- Model and Eve runtime configuration: standalone Eve project only.
 
 ## Inbound sequence
 
 ```text
 Linq signs message.received
-  → Next.js verifies signature against raw request
+  → channel adapter verifies the signature against the raw request
   → validates size, schema, partner, freshness, and one-to-one chat
   → encrypts the private provider payload
   → starts a durable Workflow
   → adapter atomically claims event_id
   → adapter resolves hashed handle to a current actor binding
   → STOP / RESUME is handled deterministically
-  → Eve queues the turn on the durable conversation
+  → adapter dispatches the authenticated turn to standalone Eve
   → Eve calls bounded SaaS tools
-  → product service reauthorizes and executes
-  → Eve completion is rendered into native bubbles
-  → Linq sends with deterministic idempotency keys
+  → canonical SaaS service reauthorizes and executes
+  → Eve calls the channel adapter's delivery boundary
+  → adapter renders native bubbles and sends through Linq
 ```
 
-## Why provider and agent are separate
-
-Webhook acknowledgement should be fast and deterministic. Model execution can be slow, variable, and retryable. Workflow accepts the provider event; Eve handles durable reasoning; the product service remains authoritative.
+Webhook acknowledgement, Workflow dispatch, and Eve completion do not prove delivery. Operational evidence must continue through the connector-owning deployment and provider acceptance.
 
 ## Data ownership
 
 | Data | Owner |
 | --- | --- |
-| Users, accounts, subscriptions, domain records | Your SaaS |
-| Channel consent and hashed-handle binding | Your SaaS |
-| Event deduplication and delivery audit | Your SaaS |
+| Users, accounts, subscriptions, domain records | Canonical SaaS |
+| Channel consent and hashed-handle binding | Canonical SaaS or its explicit channel-binding store |
+| Event deduplication and delivery audit | Channel adapter / canonical operational store |
 | Conversation execution and trace | Eve |
-| Provider delivery state | Linq, reconciled into your operational records |
-| Product analytics | PostHog, metadata-only for agent tool events |
-
-## Scaling out
-
-Start as one repository and one Vercel project. Split Eve into its own project when its deploy/rollback cycle, secrets, traffic, region, or ownership must be independent. Keep the same internal actor-scoped tool contract; do not create a second database-owning backend. Configure `SAAS_INTERNAL_API_ORIGIN` for the canonical product service and let dispatch/delivery derive the isolated channel project's production URL, or set their dedicated overrides.
+| Provider delivery state | Linq, reconciled into operational records |
+| Product analytics | Existing product analytics; agent tool metadata only |
 
 ## Required production substitutions
 
