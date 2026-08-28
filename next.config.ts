@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { withEve } from "eve/next";
 import { withWorkflow } from "workflow/next";
 
 const nextConfig: NextConfig = {
@@ -7,6 +6,6 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 };
 
-// Eve is isolated as its own Vercel service while sharing this origin with the
-// product app. Workflow provides durable acceptance and retry of provider events.
-export default withEve(withWorkflow(nextConfig), { eveRoot: "." });
+// Workflow belongs to the Next.js channel adapter. Eve is built independently
+// from the repository root with pnpm build:agent.
+export default withWorkflow(nextConfig);

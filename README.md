@@ -1,11 +1,11 @@
 # SaaS iMessage Agent Starter
 
-[![CI](https://github.com/perryraskin/saas-imessage-agent-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/perryraskin/saas-imessage-agent-starter/actions/workflows/ci.yml)
+[![CI](https://github.com/BulletApps/saas-imessage-agent-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/BulletApps/saas-imessage-agent-starter/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](./LICENSE)
 
 A production-minded starter for giving a SaaS or online product a real agent experience through iMessage.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fperryraskin%2Fsaas-imessage-agent-starter&project-name=saas-imessage-agent&repository-name=saas-imessage-agent)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBulletApps%2Fsaas-imessage-agent-starter&project-name=saas-imessage-agent&repository-name=saas-imessage-agent)
 
 The deploy button intentionally launches a safe, zero-configuration message simulator first. Real iMessage delivery remains off until you connect a provider and implement the authorization-aware adapter for your product.
 
@@ -34,19 +34,22 @@ This starter packages those boundaries without shipping a fake universal auth or
 Linq / iMessage
        │ signed webhook
        ▼
-Durable Workflow ── bounded input · sealed payload · dedupe · retry
-       │
+Channel adapter ─── Next.js · Workflow · consent · delivery
+       │ authenticated turn
        ▼
-Eve session ─────── durable context · tools · trace · evals
-       │ actor-scoped internal calls
-       ▼
-Your SaaS services ─ authorization · canonical writes · audit · undo
-       │
-       ├── PostHog MCP Analytics (metadata only)
-       └── Exact UI link + privacy-safe dynamic OG preview
+Standalone Eve ──── durable context · tools · trace · evals
+       │                         │
+       │ actor-scoped tools      └── reply delivery
+       ▼                                  ▼
+Your SaaS services               Channel adapter → Linq
+authorization · data · audit
 ```
 
 Read [Architecture](./docs/ARCHITECTURE.md) and [Threat model](./docs/SECURITY-AND-PRIVACY.md) before enabling a real channel.
+
+The one-click button deploys only the safe simulator. A real channel uses three
+Vercel projects from this repository: the canonical SaaS app, the
+connector-owning channel adapter, and standalone Eve.
 
 ## What ships
 
@@ -75,7 +78,7 @@ Use the deploy button above. No credentials are requested and no message can be 
 Requirements: Node.js 24+ and pnpm.
 
 ```bash
-git clone https://github.com/perryraskin/saas-imessage-agent-starter.git
+git clone https://github.com/BulletApps/saas-imessage-agent-starter.git
 cd saas-imessage-agent-starter
 pnpm install
 cp .env.example .env.local
@@ -92,7 +95,10 @@ Follow [Adapt your SaaS](./docs/ADAPT-YOUR-SAAS.md), including durable account b
 
 ### 4. Connect iMessage
 
-Follow [Linq and Vercel Connect setup](./docs/LINQ-SETUP.md). Configure the webhook only after your adapter and account-linking flow pass their tests.
+Follow [Linq and Vercel Connect setup](./docs/LINQ-SETUP.md). Create the
+standalone Eve and channel-adapter projects, configure the three explicit
+directional origins, and attach Linq only to the channel adapter. Configure the
+webhook only after your adapter and account-linking flow pass their tests.
 
 ### 5. Prove the real path
 
@@ -118,6 +124,18 @@ The deployed Eve eval deliberately stops before Linq. Before production changes 
 6. Never claim progress or completion from model text alone.
 7. URLs are raw, standalone messages; sensitive data never belongs in public OG metadata.
 8. Test the deployed agent and provider path, not just a mocked model call.
+
+## Build boundaries
+
+```bash
+pnpm build          # Next.js simulator / canonical SaaS / channel adapter
+pnpm build:agent    # Standalone Eve service
+pnpm check          # Types, tests, and both production builds
+```
+
+Both builds run from the repository root. Do not set the Eve project's Vercel
+Root Directory to `agent/`; that separates Eve's generated output from the
+shared dependency graph.
 
 ## Project status
 

@@ -17,7 +17,7 @@ CHANNEL_EVAL_ENABLED=true
 CHANNEL_EVAL_SECRET=at-least-32-random-characters
 CHANNEL_EVAL_USER_ID=starter-eval-user
 
-CHANNEL_EVAL_TARGET_URL=https://your-deployment.vercel.app \
+CHANNEL_EVAL_TARGET_URL=https://your-standalone-agent.vercel.app \
 CHANNEL_EVAL_SECRET=$CHANNEL_EVAL_SECRET \
 pnpm eval:deployed
 ```
@@ -40,7 +40,7 @@ Prepare a JSON body from a genuine encrypted event belonging to the dedicated ca
 }
 ```
 
-Then invoke the deployed channel origin:
+Then invoke the connector-owning channel-adapter origin:
 
 ```bash
 curl --fail-with-body \

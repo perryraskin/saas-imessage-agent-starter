@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Separated the Next.js and Eve production builds so adopters can deploy the canonical SaaS, channel adapter, and standalone Eve as three Vercel projects from one repository.
+- Made deployed agent dispatch and provider delivery require explicit origins instead of falling back to the current Vercel project.
+- Documented the repository-root Eve build, project-specific credentials, and three-project release topology.
 - Separated Next.js-to-Eve dispatch, Eve-to-SaaS data tools, and Eve-to-provider delivery origins so isolated Vercel deployments cannot silently route work or replies through the wrong project.
 - Added regression coverage for split-origin resolution.
 - Added a disabled-by-default operator canary that re-seals a dedicated account's genuine encrypted provider event with fresh identity and exercises the real Workflow → Eve → SaaS → Linq path.

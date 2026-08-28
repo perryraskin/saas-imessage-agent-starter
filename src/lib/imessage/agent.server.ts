@@ -7,11 +7,9 @@ function internalSecret(): string {
 export function agentServiceOrigin(): string {
   const explicit = process.env.AGENT_SERVICE_ORIGIN?.trim().replace(/\/$/, "");
   if (explicit) return explicit;
-  const deployment = (process.env.VERCEL_ENV === "production"
-    ? process.env.VERCEL_PROJECT_PRODUCTION_URL
-    : process.env.VERCEL_URL)?.trim().replace(/\/$/, "");
-  if (deployment) return deployment.startsWith("http") ? deployment : `https://${deployment}`;
-  if (process.env.SAAS_APP_URL) return process.env.SAAS_APP_URL.replace(/\/$/, "");
+  if (process.env.VERCEL_ENV) {
+    throw new Error("AGENT_SERVICE_ORIGIN is required for a deployed channel adapter.");
+  }
   return "http://localhost:3000";
 }
 

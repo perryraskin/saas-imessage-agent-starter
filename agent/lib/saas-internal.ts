@@ -22,12 +22,8 @@ export function saasInternalOrigin(): string {
 export function channelDeliveryOrigin(): string {
   const explicit = process.env.CHANNEL_DELIVERY_ORIGIN?.trim().replace(/\/$/, "");
   if (explicit) return explicit;
-  const deployment = (process.env.VERCEL_ENV === "production"
-    ? process.env.VERCEL_PROJECT_PRODUCTION_URL
-    : process.env.VERCEL_URL)?.trim().replace(/\/$/, "");
-  if (deployment) return deployment.startsWith("http") ? deployment : `https://${deployment}`;
-  if (process.env.VERCEL_ENV === "production") {
-    throw new Error("CHANNEL_DELIVERY_ORIGIN or VERCEL_PROJECT_PRODUCTION_URL is required for provider delivery.");
+  if (process.env.VERCEL_ENV) {
+    throw new Error("CHANNEL_DELIVERY_ORIGIN is required for a deployed Eve service.");
   }
   return saasInternalOrigin();
 }
