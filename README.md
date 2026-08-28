@@ -1,6 +1,6 @@
 # SaaS iMessage Agent Starter
 
-[![CI](https://github.com/BulletApps/saas-imessage-agent-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/BulletApps/saas-imessage-agent-starter/actions/workflows/ci.yml)
+[![CI](https://github.com/perryraskin/saas-imessage-agent-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/perryraskin/saas-imessage-agent-starter/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](./LICENSE)
 
 A production-minded starter for giving a SaaS or online product a real agent experience through iMessage.
@@ -78,7 +78,7 @@ Use the deploy button above. No credentials are requested and no message can be 
 Requirements: Node.js 24+ and pnpm.
 
 ```bash
-git clone https://github.com/BulletApps/saas-imessage-agent-starter.git
+git clone https://github.com/perryraskin/saas-imessage-agent-starter.git
 cd saas-imessage-agent-starter
 pnpm install
 cp .env.example .env.local

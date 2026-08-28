@@ -14,7 +14,7 @@ Thank you for helping make SaaS iMessage agents more trustworthy and useful.
 Requirements: Node.js 24+ and pnpm.
 
 ```bash
-git clone https://github.com/BulletApps/saas-imessage-agent-starter.git
+git clone https://github.com/perryraskin/saas-imessage-agent-starter.git
 cd saas-imessage-agent-starter
 pnpm install
 cp .env.example .env.local
