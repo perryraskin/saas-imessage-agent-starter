@@ -2,7 +2,7 @@
 
 This repository is a public starter, not a production SaaS database. Keep examples generic and never copy customer data, credentials, private URLs, proprietary prompts, or product-specific identifiers into it.
 
-This repository MUST remain owned by Perry's personal GitHub account at `perryraskin/saas-imessage-agent-starter`. Do not transfer it to `BulletApps` or another organization.
+This repository MUST remain owned by Perry's personal GitHub account at `perryraskin/saas-imessage-agent-starter`. Do not transfer it to an organization or another owner.
 
 Before calling work complete:
 
