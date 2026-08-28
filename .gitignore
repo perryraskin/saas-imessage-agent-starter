@@ -1,0 +1,14 @@
+.next
+.eve
+.output
+.swc
+.workflow
+node_modules
+.env
+.env.local
+.vercel
+coverage
+*.log
+*.tsbuildinfo
+.DS_Store
+/.swc

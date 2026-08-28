@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/perryraskin/saas-imessage-agent-starter/discussions
+    about: Ask setup questions or discuss early ideas.
+  - name: Private security report
+    url: https://github.com/perryraskin/saas-imessage-agent-starter/security/advisories/new
+    about: Report vulnerabilities privately.

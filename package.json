@@ -1,0 +1,44 @@
+{
+  "name": "saas-imessage-agent-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Production-minded iMessage agent starter for SaaS products",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "eve build && next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval:channel": "eve eval --tag channel-e2e --strict",
+    "eval:deployed": "node evals/deployed-canary.mjs",
+    "check": "pnpm typecheck && pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "@ai-sdk/gateway": "^4.0.67",
+    "@posthog/mcp": "0.12.0",
+    "@vercel/connect": "^2.0.0",
+    "ai": "^7.0.82",
+    "eve": "^0.47.2",
+    "jose": "^6.1.2",
+    "next": "^16.3.3",
+    "posthog-node": "^5.49.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "workflow": "^5.0.0-beta.46",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.11"
+  }
+}

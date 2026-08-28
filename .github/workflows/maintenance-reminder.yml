@@ -1,0 +1,25 @@
+name: Maintainer sync reminder
+
+on:
+  schedule:
+    - cron: "23 14 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open one deduplicated review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create maintenance --color 0e8a16 --description "Maintainer sync and dependency review" --force
+          existing=$(gh issue list --state open --label maintenance --search "Monthly production-learning sync in:title" --json number --jq 'length')
+          if [ "$existing" = "0" ]; then
+            gh issue create --label maintenance --title "Monthly production-learning sync" --body $'Review docs/MAINTAINER-SYNC.md.\n\n- [ ] Port reusable production regressions and fixes\n- [ ] Review Eve, Vercel, Linq, and PostHog changes\n- [ ] Review dependencies and security alerts\n- [ ] Verify the deploy button and simulator\n- [ ] Review roadmap and community feedback\n- [ ] Update CHANGELOG.md when needed'
+          fi

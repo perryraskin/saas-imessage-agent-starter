@@ -1,0 +1,32 @@
+name: Feature proposal
+description: Propose a reusable improvement for SaaS iMessage agents
+title: "[Proposal]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What generic user or maintainer problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Safety and product boundaries
+      description: Cover authorization, privacy, write risk, delivery, failure, and testing implications.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This is reusable across SaaS products rather than product-specific business logic.
+          required: true
