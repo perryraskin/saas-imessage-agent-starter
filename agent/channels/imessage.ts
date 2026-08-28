@@ -1,6 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { defineChannel, POST } from "eve/channels";
 import { z } from "zod";
+import { channelDeliveryOrigin } from "../lib/saas-internal";
 
 type State = {
   chatId: string | null;
@@ -35,16 +36,9 @@ function authorized(request: Request): boolean {
   return supplied.length === expected.length && timingSafeEqual(supplied, expected);
 }
 
-function appOrigin(): string {
-  if (process.env.SAAS_INTERNAL_API_ORIGIN) return process.env.SAAS_INTERNAL_API_ORIGIN.replace(/\/$/, "");
-  if (process.env.SAAS_APP_URL) return process.env.SAAS_APP_URL.replace(/\/$/, "");
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return "http://localhost:3000";
-}
-
 async function deliver(state: State, text: string, suffix: string, continueTyping = false): Promise<void> {
   if (!state.chatId || !state.eventId || !text.trim()) return;
-  const response = await fetch(`${appOrigin()}/api/internal/agent/deliver`, {
+  const response = await fetch(`${channelDeliveryOrigin()}/api/internal/agent/deliver`, {
     method: "POST",
     headers: { authorization: `Bearer ${secret()}`, "content-type": "application/json" },
     body: JSON.stringify({

@@ -7,12 +7,29 @@ export type ToolName =
   | "get_handoff_link"
   | "submit_product_feedback";
 
-function appOrigin(): string {
+export function saasInternalOrigin(): string {
   const explicit = process.env.SAAS_INTERNAL_API_ORIGIN?.trim().replace(/\/$/, "");
   if (explicit) return explicit;
-  if (process.env.SAAS_APP_URL) return process.env.SAAS_APP_URL.replace(/\/$/, "");
+  const configured = process.env.SAAS_APP_URL?.trim().replace(/\/$/, "");
+  if (configured) return configured;
+  if (process.env.VERCEL_ENV === "production") {
+    throw new Error("SAAS_INTERNAL_API_ORIGIN or SAAS_APP_URL is required for production SaaS tools.");
+  }
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return "http://localhost:3000";
+}
+
+export function channelDeliveryOrigin(): string {
+  const explicit = process.env.CHANNEL_DELIVERY_ORIGIN?.trim().replace(/\/$/, "");
+  if (explicit) return explicit;
+  const deployment = (process.env.VERCEL_ENV === "production"
+    ? process.env.VERCEL_PROJECT_PRODUCTION_URL
+    : process.env.VERCEL_URL)?.trim().replace(/\/$/, "");
+  if (deployment) return deployment.startsWith("http") ? deployment : `https://${deployment}`;
+  if (process.env.VERCEL_ENV === "production") {
+    throw new Error("CHANNEL_DELIVERY_ORIGIN or VERCEL_PROJECT_PRODUCTION_URL is required for provider delivery.");
+  }
+  return saasInternalOrigin();
 }
 
 function secret(): string {
@@ -24,7 +41,7 @@ function secret(): string {
 export async function callSaasTool(tool: ToolName, input: unknown, ctx: ToolContext): Promise<unknown> {
   const caller = ctx.session.auth.current;
   if (!caller || caller.principalType !== "user") return { ok: false, error: "unauthorized" };
-  const response = await fetch(`${appOrigin()}/api/internal/agent/tools`, {
+  const response = await fetch(`${saasInternalOrigin()}/api/internal/agent/tools`, {
     method: "POST",
     headers: { authorization: `Bearer ${secret()}`, "content-type": "application/json" },
     body: JSON.stringify({

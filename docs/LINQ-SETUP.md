@@ -16,6 +16,17 @@ Confirm Linq and Apple/provider terms allow your intended transactional agent us
 8. Enable isolated test accounts with `IMESSAGE_ENABLED=true` and `SAAS_ADAPTER=custom`.
 9. Run deployed evals twice and the physical-device checklist before expanding the cohort.
 
+## Split Vercel projects
+
+If Eve and Linq run in an isolated channel project while your SaaS remains canonical elsewhere:
+
+- Set `SAAS_INTERNAL_API_ORIGIN` to the canonical SaaS origin for actor-scoped data tools.
+- Leave `AGENT_SERVICE_ORIGIN` unset to use the channel project's production URL, or set it explicitly to that channel origin.
+- Leave `CHANNEL_DELIVERY_ORIGIN` unset to use the connector-owning channel project's production URL, or set it explicitly to that channel origin.
+- Attach the Linq connector only to the isolated channel project.
+
+Do not point delivery at the canonical SaaS unless that exact project owns the connector. A successful Eve turn does not prove that the user received a message.
+
 ## Webhook behavior
 
 The webhook rejects disabled, unsigned, oversized, malformed, wrong-partner, stale, and future-dated events. Accepted private payloads are encrypted before entering Workflow. Your adapter must still provide durable event claiming; Workflow retry does not replace application idempotency.

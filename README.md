@@ -24,6 +24,7 @@ Most agent examples stop at chat UI, a webhook, or a model call. A trustworthy S
 - Feedback through the product's existing feedback system.
 - Metadata-only PostHog MCP Analytics.
 - Deployed-agent canaries and physical-device acceptance testing.
+- Split-deployment origin safety and an operator-only real-provider canary.
 
 This starter packages those boundaries without shipping a fake universal auth or database layer.
 
@@ -60,7 +61,7 @@ Read [Architecture](./docs/ARCHITECTURE.md) and [Threat model](./docs/SECURITY-A
 | Presence | Read and typing lifecycle tied to real execution |
 | Analytics | Optional canonical `$mcp_tool_call` events via PostHog MCP Analytics |
 | Rich handoff | Exact-link and dynamic OG example with privacy guidance |
-| QA | Unit tests, Eve deployed-eval harness, CI, and physical-client checklist |
+| QA | Unit tests, Eve deployed evals, operator-only provider canary, CI, and physical-client checklist |
 | Community | MIT license, contributing guide, code of conduct, security policy, templates, discussions |
 
 ## Quick start
@@ -104,6 +105,8 @@ pnpm eval:deployed
 ```
 
 Then run the [physical iPhone checklist](./docs/TESTING.md#physical-imessage-acceptance).
+
+The deployed Eve eval deliberately stops before Linq. Before production changes are called healthy, run the [provider canary](./docs/TESTING.md#provider-canary) and require evidence through the actual connector-owning delivery deployment.
 
 ## Principles
 

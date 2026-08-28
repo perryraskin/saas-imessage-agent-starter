@@ -9,6 +9,18 @@ The repository uses two logical services on one Vercel origin:
 
 Eve calls the product boundary with a shared internal secret and an authenticated actor derived from a previously verified channel binding. Eve never receives your product database credentials.
 
+### Keep three directional origins separate
+
+One-project deployments may use one hostname, but the code treats these directions separately so a later project split cannot silently drop messages:
+
+| Direction | Default | Explicit override |
+| --- | --- | --- |
+| Next.js ingress → Eve | Current channel deployment | `AGENT_SERVICE_ORIGIN` |
+| Eve → canonical SaaS data tools | `SAAS_APP_URL` | `SAAS_INTERNAL_API_ORIGIN` |
+| Eve → provider delivery route | Current channel deployment | `CHANNEL_DELIVERY_ORIGIN` |
+
+When Eve runs in an isolated Vercel project, data tools must cross to the canonical SaaS, while provider delivery must return to the project that owns the Linq connector. Never reuse the canonical data-tool origin for dispatch or delivery. Production origin resolution fails closed when the required boundary cannot be derived.
+
 ## Inbound sequence
 
 ```text
@@ -44,7 +56,7 @@ Webhook acknowledgement should be fast and deterministic. Model execution can be
 
 ## Scaling out
 
-Start as one repository and one Vercel project. Split Eve into its own project when its deploy/rollback cycle, secrets, traffic, region, or ownership must be independent. Keep the same internal actor-scoped tool contract; do not create a second database-owning backend.
+Start as one repository and one Vercel project. Split Eve into its own project when its deploy/rollback cycle, secrets, traffic, region, or ownership must be independent. Keep the same internal actor-scoped tool contract; do not create a second database-owning backend. Configure `SAAS_INTERNAL_API_ORIGIN` for the canonical product service and let dispatch/delivery derive the isolated channel project's production URL, or set their dedicated overrides.
 
 ## Required production substitutions
 

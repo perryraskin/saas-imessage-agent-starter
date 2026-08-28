@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Separated Next.js-to-Eve dispatch, Eve-to-SaaS data tools, and Eve-to-provider delivery origins so isolated Vercel deployments cannot silently route work or replies through the wrong project.
+- Added regression coverage for split-origin resolution.
+- Added a disabled-by-default operator canary that re-seals a dedicated account's genuine encrypted provider event with fresh identity and exercises the real Workflow → Eve → SaaS → Linq path.
+
 ## 0.1.0 — 2026-08-28
 
 - Published the zero-configuration iMessage response simulator and one-click Vercel deployment.

@@ -18,6 +18,7 @@ Primary risks include forged/replayed webhooks, recycled phone numbers, cross-ac
 - Handle STOP, resume, rate limits, quiet hours, and unlink deterministically.
 - Keep URLs, OG metadata, logs, errors, and analytics privacy-minimized.
 - Isolate canary accounts/numbers and flag test analytics.
+- Keep the provider canary disabled by default, protect it with an independent operator secret, and allow it to target only a dedicated canary binding.
 - Add kill switches for inbound processing, outbound delivery, and proactive messages.
 
 ## PostHog MCP Analytics
