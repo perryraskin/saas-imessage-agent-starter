@@ -2,6 +2,8 @@ allowBuilds:
   '@swc/core': true
   cbor-extract: true
   esbuild: true
+overrides:
+  '@workflow/core>nanoid': 5.1.16
 minimumReleaseAgeExclude:
   - '@posthog/core@1.49.1'
   - '@posthog/mcp@0.12.0'

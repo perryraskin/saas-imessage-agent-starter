@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@workflow/core>nanoid': 5.1.16
+
 importers:
 
   .:
@@ -2370,8 +2373,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.1.6:
-    resolution: {integrity: sha512-c7+7RQ+dMB5dPwwCp4ee1/iV/q2P6aK1mTZcfr1BTuVlyW9hJYiMPybJCcnBlQtuSmTIWNeazm/zqNoZSSElBg==}
+  nanoid@5.1.16:
+    resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -4226,7 +4229,7 @@ snapshots:
       debug: 4.4.3(supports-color@8.1.1)
       devalue: 5.9.0
       ms: 2.1.3
-      nanoid: 5.1.6
+      nanoid: 5.1.16
       quickjs-wasi: 3.4.0
       seedrandom: 3.0.5
       semver: 7.7.4
@@ -5433,7 +5436,7 @@ snapshots:
 
   nanoid@3.3.18: {}
 
-  nanoid@5.1.6: {}
+  nanoid@5.1.16: {}
 
   negotiator@1.1.0:
     dependencies:

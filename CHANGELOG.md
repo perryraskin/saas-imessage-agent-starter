@@ -9,3 +9,4 @@
 - Added native iMessage rendering with Markdown removal, safe splitting, and standalone URL bubbles.
 - Added privacy-safe dynamic OG handoff example and PostHog MCP Analytics.
 - Added CI, security guidance, contributing standards, issue/PR templates, Dependabot, CodeQL, and a maintenance reminder.
+- Pinned Workflow's transitive `nanoid` dependency to the first patched release for GHSA-mwcw-c2x4-8c55.
