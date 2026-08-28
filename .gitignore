@@ -10,5 +10,6 @@ node_modules
 coverage
 *.log
 *.tsbuildinfo
+next-env.d.ts
 .DS_Store
 /.swc
