@@ -5,7 +5,7 @@
 
 A production-minded starter for giving a SaaS or online product a real agent experience through iMessage.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBulletApps%2Fsaas-imessage-agent-starter&project-name=saas-imessage-agent&repository-name=saas-imessage-agent)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fperryraskin%2Fsaas-imessage-agent-starter&project-name=saas-imessage-agent&repository-name=saas-imessage-agent)
 
 The deploy button intentionally launches a safe, zero-configuration message simulator first. Real iMessage delivery remains off until you connect a provider and implement the authorization-aware adapter for your product.
 
