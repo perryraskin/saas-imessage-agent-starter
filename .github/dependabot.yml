@@ -9,6 +9,13 @@ updates:
         patterns: ["eve", "ai", "@ai-sdk/*", "workflow", "@vercel/*", "next"]
       posthog:
         patterns: ["@posthog/*", "posthog-*"]
+    ignore:
+      # Keep language/runtime types aligned with the supported Node 24 + TS 5
+      # baseline. Major migrations should be deliberate roadmap work.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
