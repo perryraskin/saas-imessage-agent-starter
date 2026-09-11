@@ -1,6 +1,6 @@
-import { claimInboundEvent } from "@/lib/agent/saas-adapter";
-import { openImessageEvent } from "@/lib/imessage/security";
-import { processImessageEvent } from "@/lib/imessage/process.server";
+import { claimInboundEvent } from "../lib/agent/saas-adapter";
+import { openImessageEvent } from "../lib/imessage/security";
+import { processImessageEvent } from "../lib/imessage/process.server";
 
 export type ImessageWorkflowEnvelope = {
   eventId: string;
