@@ -15,8 +15,8 @@ importers:
         specifier: ^4.0.70
         version: 4.0.70(zod@4.5.4)
       '@posthog/mcp':
-        specifier: 0.12.0
-        version: 0.12.0(posthog-node@5.51.6(rxjs@7.8.2))
+        specifier: 0.13.1
+        version: 0.13.1(posthog-node@5.51.7(rxjs@7.8.2))
       '@vercel/connect':
         specifier: ^2.0.1
         version: 2.0.1(ai@7.0.87(zod@4.5.4))(eve@0.47.6(@vercel/functions@3.9.5(@aws-sdk/credential-provider-web-identity@3.972.49)(ws@8.21.3))(ai@7.0.87(zod@4.5.4))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(rollup@4.63.0)(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)))
@@ -33,8 +33,8 @@ importers:
         specifier: ^16.3.4
         version: 16.3.4(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       posthog-node:
-        specifier: ^5.51.6
-        version: 5.51.6(rxjs@7.8.2)
+        specifier: ^5.51.7
+        version: 5.51.7(rxjs@7.8.2)
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -715,14 +715,11 @@ packages:
   '@oxc-project/types@0.147.0':
     resolution: {integrity: sha512-IJ3s6ltHLp45S0bh7phkX+gJO7A1Wuz2EaqpAhb8WjqDwbzMiWKHhyyT42tskaWjEYXtHtVCPpnBJVT9+dcRLg==}
 
-  '@posthog/core@1.49.1':
-    resolution: {integrity: sha512-jdZh85tG56OXLH881CVwBZyiXCPPaZasfYeWwm9kVUvxC/Rb+lz7wYN9GuqSEmNPJgVnK4v8wS0bCaFc3OmVEA==}
+  '@posthog/core@1.51.0':
+    resolution: {integrity: sha512-LilmmtjcrjV1LgaVNQXrAUt4IXcWIYMrwEtx6VJUUFDeBBdmeI99jshKGtAWugYeB3Wkcp9xQIVCrxIYRpNiRA==}
 
-  '@posthog/core@1.50.0':
-    resolution: {integrity: sha512-25SnQycZbqqLodQs+GaDPGDC1oxT8+XOSGlyhiS2rtdVON9Opg2hmfJ/fpFNgMBL7YDi0rpvJiR/fudy96W4pA==}
-
-  '@posthog/mcp@0.12.0':
-    resolution: {integrity: sha512-OZX+WAEKHs6P9AAarL9RIaGmepUuT/eC30A+ZCHxbMlUXF3DlULn8KLB3rmIyzvxPRvqRPSnFfEdE4owi49Fxw==}
+  '@posthog/mcp@0.13.1':
+    resolution: {integrity: sha512-fAG91FXTdZ3tPL+OIS+YTwuWieX/Gz/Vag/vd/fDUgLXfEk39/38PhBlUgZ3pJ+Wm3DNjnLk6hglzMBD7ZByPw==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       '@modelcontextprotocol/sdk': '>=1.26.0'
@@ -734,11 +731,8 @@ packages:
       '@modelcontextprotocol/server':
         optional: true
 
-  '@posthog/types@1.407.0':
-    resolution: {integrity: sha512-7J/aFVi7JWFt/ekGVsMFvkTcADoE9MTNf1N9cpBSMUQ/SPLiBjbg386Fzk5OlgWG/u5OemBy4wlgD7YebqeppQ==}
-
-  '@posthog/types@1.407.1':
-    resolution: {integrity: sha512-WhbkXPC2rgylXqmxHqv70ffI3k+KxyR6s7DBIfr5NvIqHkxp6v0pk31D/jbz0DNVbzwkLjyll2pxr4FNbJiYzg==}
+  '@posthog/types@1.409.1':
+    resolution: {integrity: sha512-lA2sSGQUdVknSQl93uN9eUXDwkCMjAuthq24GONGHzMWwVygsKNHlWCnlJsVv2giDokj2p1NopO4zsE2S7gYjA==}
 
   '@rolldown/binding-android-arm-eabi@1.2.6':
     resolution: {integrity: sha512-b+jTcARdTiFLI6jB4a5XjTm0RWd6KcRfQj/I2356fxUZemiho9zQLxo0RtCuMDAyKcLo6cEltkgbQp6d1+sjjQ==}
@@ -2600,8 +2594,8 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  posthog-node@5.51.6:
-    resolution: {integrity: sha512-r+Ge3p0OnOcOWeTnvKZmAtDwECeIoyNTyxBxuZc8wM6RHCQ9j2Xrhogrf39HSq1Y2gIOpWLqIDRmWDcu7xmqcA==}
+  posthog-node@5.51.7:
+    resolution: {integrity: sha512-QzUQ0S7afLIivL1mQvZ1qv3/o179ds1Zze7Zf4JDhjVlJ1mFTyu42cwFQHrD0VQpPXhIVKOq7AvSrF8Bt8yonQ==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       rxjs: ^7.0.0
@@ -3806,22 +3800,16 @@ snapshots:
 
   '@oxc-project/types@0.147.0': {}
 
-  '@posthog/core@1.49.1':
+  '@posthog/core@1.51.0':
     dependencies:
-      '@posthog/types': 1.407.0
+      '@posthog/types': 1.409.1
 
-  '@posthog/core@1.50.0':
+  '@posthog/mcp@0.13.1(posthog-node@5.51.7(rxjs@7.8.2))':
     dependencies:
-      '@posthog/types': 1.407.1
+      '@posthog/core': 1.51.0
+      posthog-node: 5.51.7(rxjs@7.8.2)
 
-  '@posthog/mcp@0.12.0(posthog-node@5.51.6(rxjs@7.8.2))':
-    dependencies:
-      '@posthog/core': 1.49.1
-      posthog-node: 5.51.6(rxjs@7.8.2)
-
-  '@posthog/types@1.407.0': {}
-
-  '@posthog/types@1.407.1': {}
+  '@posthog/types@1.409.1': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.6':
     optional: true
@@ -5718,9 +5706,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  posthog-node@5.51.6(rxjs@7.8.2):
+  posthog-node@5.51.7(rxjs@7.8.2):
     dependencies:
-      '@posthog/core': 1.50.0
+      '@posthog/core': 1.51.0
     optionalDependencies:
       rxjs: 7.8.2
 
