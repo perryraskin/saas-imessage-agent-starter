@@ -19,7 +19,8 @@ export default defineChannel<State>({
   kindHint: "imessage",
   turnPolicy: "queue",
   state: { conversationId: null, userId: null },
-  metadata: () => ({ audience: "private" as const, qa: true }),
+  audience: () => "private",
+  metadata: () => ({ qa: true }),
   routes: [
     POST<State>("/eve/v1/starter/eval/message", async (request, { from }) => {
       if (!authorized(request)) return Response.json({ ok: false }, { status: 404 });
