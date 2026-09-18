@@ -69,8 +69,9 @@ export default defineChannel<State, Context>({
   context(state) {
     return { state };
   },
+  audience: () => "private",
   metadata(state) {
-    return { audience: "private" as const, userId: state.userId };
+    return { userId: state.userId };
   },
   routes: [
     POST<State>("/eve/v1/starter/imessage/message", async (request, { from }) => {
