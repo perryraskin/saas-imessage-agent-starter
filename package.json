@@ -22,17 +22,17 @@
     "check": "pnpm typecheck && pnpm test && pnpm build && pnpm build:agent"
   },
   "dependencies": {
-    "@ai-sdk/gateway": "^4.0.75",
+    "@ai-sdk/gateway": "^4.0.81",
     "@posthog/mcp": "0.13.1",
-    "@vercel/connect": "^2.0.2",
-    "ai": "^7.0.93",
-    "eve": "^0.52.2",
+    "@vercel/connect": "^2.1.0",
+    "ai": "^7.0.101",
+    "eve": "^0.55.0",
     "jose": "^6.2.12",
-    "next": "^16.3.4",
+    "next": "^16.3.5",
     "posthog-node": "^5.51.7",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "workflow": "^5.0.0-beta.48",
+    "workflow": "^5.0.0-beta.52",
     "zod": "^4.5.4"
   },
   "devDependencies": {
