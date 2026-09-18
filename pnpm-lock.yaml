@@ -13,19 +13,19 @@ importers:
     dependencies:
       '@ai-sdk/gateway':
         specifier: ^4.0.75
-        version: 4.0.75(zod@4.5.4)
+        version: 4.0.75(zod@4.6.5)
       '@posthog/mcp':
         specifier: 0.13.1
         version: 0.13.1(posthog-node@5.51.7(rxjs@7.8.2))
       '@vercel/connect':
         specifier: ^2.0.2
-        version: 2.0.2(ai@7.0.93(zod@4.5.4))(eve@0.52.2(ai@7.0.93(zod@4.5.4)))
+        version: 2.0.2(ai@7.0.93(zod@4.6.5))(eve@0.52.2(ai@7.0.93(zod@4.6.5)))
       ai:
         specifier: ^7.0.93
-        version: 7.0.93(zod@4.5.4)
+        version: 7.0.93(zod@4.6.5)
       eve:
         specifier: ^0.52.2
-        version: 0.52.2(ai@7.0.93(zod@4.5.4))
+        version: 0.52.2(ai@7.0.93(zod@4.6.5))
       jose:
         specifier: ^6.2.12
         version: 6.2.12
@@ -45,8 +45,8 @@ importers:
         specifier: ^5.0.0-beta.48
         version: 5.0.0-beta.48(@aws-sdk/credential-provider-web-identity@3.972.49)(@nestjs/common@12.0.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.0.1(@nestjs/common@12.0.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(reflect-metadata@0.2.2)(rxjs@7.8.2))(@swc/cli@0.8.1(@swc/core@1.15.3(@swc/helpers@0.5.23))(chokidar@5.0.0)(supports-color@8.1.1))(@swc/core@1.15.3(@swc/helpers@0.5.23))(@swc/helpers@0.5.23)(next@16.3.4(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)(supports-color@8.1.1)(typescript@5.9.3)(ws@8.21.3)
       zod:
-        specifier: ^4.5.4
-        version: 4.5.4
+        specifier: ^4.6.5
+        version: 4.6.5
     devDependencies:
       '@types/node':
         specifier: ^24.13.3
@@ -2990,26 +2990,26 @@ packages:
   zod@4.3.6:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
-  zod@4.5.4:
-    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
+  zod@4.6.5:
+    resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
 
 snapshots:
 
-  '@ai-sdk/gateway@4.0.75(zod@4.5.4)':
+  '@ai-sdk/gateway@4.0.75(zod@4.6.5)':
     dependencies:
       '@ai-sdk/provider': 4.0.10
-      '@ai-sdk/provider-utils': 5.0.36(zod@4.5.4)
+      '@ai-sdk/provider-utils': 5.0.36(zod@4.6.5)
       '@vercel/oidc': 3.2.0
-      zod: 4.5.4
+      zod: 4.6.5
 
-  '@ai-sdk/provider-utils@5.0.36(zod@4.5.4)':
+  '@ai-sdk/provider-utils@5.0.36(zod@4.6.5)':
     dependencies:
       '@ai-sdk/provider': 4.0.10
       '@standard-schema/spec': 1.1.0
       '@workflow/serde': 4.1.0
       eventsource-parser: 3.1.1
       undici: 7.29.0
-      zod: 4.5.4
+      zod: 4.6.5
 
   '@ai-sdk/provider@4.0.10':
     dependencies:
@@ -3716,12 +3716,12 @@ snapshots:
     dependencies:
       execa: 5.1.1
 
-  '@vercel/connect@2.0.2(ai@7.0.93(zod@4.5.4))(eve@0.52.2(ai@7.0.93(zod@4.5.4)))':
+  '@vercel/connect@2.0.2(ai@7.0.93(zod@4.6.5))(eve@0.52.2(ai@7.0.93(zod@4.6.5)))':
     dependencies:
       '@vercel/oidc': 3.8.5
     optionalDependencies:
-      ai: 7.0.93(zod@4.5.4)
-      eve: 0.52.2(ai@7.0.93(zod@4.5.4))
+      ai: 7.0.93(zod@4.6.5)
+      eve: 0.52.2(ai@7.0.93(zod@4.6.5))
 
   '@vercel/functions@3.9.5(@aws-sdk/credential-provider-web-identity@3.972.49)(ws@8.21.3)':
     dependencies:
@@ -4147,12 +4147,12 @@ snapshots:
 
   acorn@8.18.0: {}
 
-  ai@7.0.93(zod@4.5.4):
+  ai@7.0.93(zod@4.6.5):
     dependencies:
-      '@ai-sdk/gateway': 4.0.75(zod@4.5.4)
+      '@ai-sdk/gateway': 4.0.75(zod@4.6.5)
       '@ai-sdk/provider': 4.0.10
-      '@ai-sdk/provider-utils': 5.0.36(zod@4.5.4)
-      zod: 4.5.4
+      '@ai-sdk/provider-utils': 5.0.36(zod@4.6.5)
+      zod: 4.6.5
 
   ansi-align@3.0.1:
     dependencies:
@@ -4526,9 +4526,9 @@ snapshots:
 
   etag@1.8.1: {}
 
-  eve@0.52.2(ai@7.0.93(zod@4.5.4)):
+  eve@0.52.2(ai@7.0.93(zod@4.6.5)):
     dependencies:
-      ai: 7.0.93(zod@4.5.4)
+      ai: 7.0.93(zod@4.6.5)
       nitro: 3.0.260903-beta
       undici: 8.9.0
 
@@ -5813,4 +5813,4 @@ snapshots:
 
   zod@4.3.6: {}
 
-  zod@4.5.4: {}
+  zod@4.6.5: {}
