@@ -19,19 +19,19 @@ importers:
     dependencies:
       '@ai-sdk/gateway':
         specifier: ^4.0.111
-        version: 4.0.111(zod@4.6.5)
+        version: 4.0.111(zod@4.6.7)
       '@posthog/mcp':
-        specifier: 0.22.1
-        version: 0.22.1(posthog-node@5.55.0(rxjs@7.8.2))
+        specifier: 0.22.3
+        version: 0.22.3(posthog-node@5.55.3(rxjs@7.8.2))
       '@vercel/connect':
         specifier: ^2.4.1
-        version: 2.4.1(ai@7.0.138(zod@4.6.5))(eve@0.78.0(ai@7.0.138(zod@4.6.5)))
+        version: 2.4.1(ai@7.0.138(zod@4.6.7))(eve@0.78.0(ai@7.0.138(zod@4.6.7)))
       ai:
         specifier: ^7.0.138
-        version: 7.0.138(zod@4.6.5)
+        version: 7.0.138(zod@4.6.7)
       eve:
         specifier: ^0.78.0
-        version: 0.78.0(ai@7.0.138(zod@4.6.5))
+        version: 0.78.0(ai@7.0.138(zod@4.6.7))
       jose:
         specifier: ^6.2.12
         version: 6.2.12
@@ -39,8 +39,8 @@ importers:
         specifier: ^16.4.0
         version: 16.4.0(@types/node@24.19.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       posthog-node:
-        specifier: ^5.55.0
-        version: 5.55.0(rxjs@7.8.2)
+        specifier: ^5.55.3
+        version: 5.55.3(rxjs@7.8.2)
       react:
         specifier: ^19.3.0
         version: 19.3.0
@@ -51,8 +51,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(@aws-sdk/credential-provider-web-identity@3.972.49)(@nestjs/common@12.0.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.0.1(@nestjs/common@12.0.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(reflect-metadata@0.2.2)(rxjs@7.8.2))(@swc/cli@0.8.1(@swc/core@1.15.3(@swc/helpers@0.5.23))(chokidar@5.0.0)(supports-color@8.1.1))(@swc/core@1.15.3(@swc/helpers@0.5.23))(@swc/helpers@0.5.23)(next@16.4.0(@types/node@24.19.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(supports-color@8.1.1)(typescript@5.9.3)(ws@8.22.0)
       zod:
-        specifier: ^4.6.5
-        version: 4.6.5
+        specifier: ^4.6.7
+        version: 4.6.7
     devDependencies:
       '@types/node':
         specifier: ^24.19.2
@@ -711,11 +711,11 @@ packages:
   '@oxc-project/types@0.153.0':
     resolution: {integrity: sha512-jSNrRIyvPVLL5E1z/tS5zLAprosGz/FuI1PWwEOz59j3E4TTTzSpqKb/RDGqJhhW0QHYISGXxq582wGx6T11Tw==}
 
-  '@posthog/core@1.57.0':
-    resolution: {integrity: sha512-ZpIWCSkog0v4whufAXetagBsVLqE1Zjl5DsHC2squTy8nS/vqZ9W5JvWkJFgHK8hk5x1gdwMoXY7FK2S0YRT1Q==}
+  '@posthog/core@1.58.1':
+    resolution: {integrity: sha512-z0ISzMUoF1izukfLIUSjGZBdO5H2BPdqN8MX27OKYGQ1sDj/r+WW9Nq7m5WsQY56NOxVsFtHClx9iHj6MYM3Tg==}
 
-  '@posthog/mcp@0.22.1':
-    resolution: {integrity: sha512-Fwxx8vUqgGFbkAQyhBA+dRlh2gvkhXF6jdjB9r8Z1XlP8Vtl6qpb98m2kcW2yzeSETM1c7SRn8P6Ox10IvdhxA==}
+  '@posthog/mcp@0.22.3':
+    resolution: {integrity: sha512-ZO2+f/PxHdsbVwwtihBTvqMP7dkKDNnZJCxYD/MxS7BT1I6SCSVodwQ5NtaTxmYUdBzJptXQ9kVdbRJtOUaVlg==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       '@modelcontextprotocol/sdk': '>=1.26.0'
@@ -727,8 +727,8 @@ packages:
       '@modelcontextprotocol/server':
         optional: true
 
-  '@posthog/types@1.415.0':
-    resolution: {integrity: sha512-LGVu1f8r1Hi97yCwXg6PJn7chIwjxosAkkNrh7RIDRtFC5Kc+rkqHqFv73KrjEgCj7Se+0OR5esI4Tg0io6kuA==}
+  '@posthog/types@1.415.3':
+    resolution: {integrity: sha512-y90ARRBbyXcZDwuXXXvAnbjiuxQ+4FmUI4sasI19AHOPgdWPyd2Kpo0c0B2pKIR+fq+BcRokhF35eAdA54Mfbw==}
 
   '@rolldown/binding-android-arm-eabi@1.2.13':
     resolution: {integrity: sha512-Vu/NICrgdRvUOeaJZIyB2FP63s6fO/4ud5l8dXmxDx9yDyn+mN0y+gsvsVviSli+T361Aqo0h46EuMoobrwawA==}
@@ -2240,8 +2240,8 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  posthog-node@5.55.0:
-    resolution: {integrity: sha512-8dFtlDTqs0CKGZ8t4mUnk4NdShAgzru3B9D0MfM/NTBzlRyAjctivzWINLtMLRQxYjvgBohxy7RTwiQf4mPycQ==}
+  posthog-node@5.55.3:
+    resolution: {integrity: sha512-UllcPxGClim6WM8l4cuJCccCN7zH/7z8t59APs0oIkQ+t/UrWPauDvuLnz3lWS2Adj1Vccl0Yq3dnIOI+JvCVg==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       rxjs: ^7.0.0
@@ -2797,26 +2797,26 @@ packages:
   zod@4.5.4:
     resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
 
-  zod@4.6.5:
-    resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
+  zod@4.6.7:
+    resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
 
 snapshots:
 
-  '@ai-sdk/gateway@4.0.111(zod@4.6.5)':
+  '@ai-sdk/gateway@4.0.111(zod@4.6.7)':
     dependencies:
       '@ai-sdk/provider': 4.0.27
-      '@ai-sdk/provider-utils': 5.0.59(zod@4.6.5)
+      '@ai-sdk/provider-utils': 5.0.59(zod@4.6.7)
       '@vercel/oidc': 3.2.0
-      zod: 4.6.5
+      zod: 4.6.7
 
-  '@ai-sdk/provider-utils@5.0.59(zod@4.6.5)':
+  '@ai-sdk/provider-utils@5.0.59(zod@4.6.7)':
     dependencies:
       '@ai-sdk/provider': 4.0.27
       '@standard-schema/spec': 1.1.0
       '@workflow/serde': 4.1.0
       eventsource-parser: 3.1.1
       undici: 7.29.1
-      zod: 4.6.5
+      zod: 4.6.7
 
   '@ai-sdk/provider@4.0.27':
     dependencies:
@@ -3300,16 +3300,16 @@ snapshots:
 
   '@oxc-project/types@0.153.0': {}
 
-  '@posthog/core@1.57.0':
+  '@posthog/core@1.58.1':
     dependencies:
-      '@posthog/types': 1.415.0
+      '@posthog/types': 1.415.3
 
-  '@posthog/mcp@0.22.1(posthog-node@5.55.0(rxjs@7.8.2))':
+  '@posthog/mcp@0.22.3(posthog-node@5.55.3(rxjs@7.8.2))':
     dependencies:
-      '@posthog/core': 1.57.0
-      posthog-node: 5.55.0(rxjs@7.8.2)
+      '@posthog/core': 1.58.1
+      posthog-node: 5.55.3(rxjs@7.8.2)
 
-  '@posthog/types@1.415.0': {}
+  '@posthog/types@1.415.3': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.13':
     optional: true
@@ -3523,12 +3523,12 @@ snapshots:
     dependencies:
       execa: 5.1.1
 
-  '@vercel/connect@2.4.1(ai@7.0.138(zod@4.6.5))(eve@0.78.0(ai@7.0.138(zod@4.6.5)))':
+  '@vercel/connect@2.4.1(ai@7.0.138(zod@4.6.7))(eve@0.78.0(ai@7.0.138(zod@4.6.7)))':
     dependencies:
       '@vercel/oidc': 4.0.0
     optionalDependencies:
-      ai: 7.0.138(zod@4.6.5)
-      eve: 0.78.0(ai@7.0.138(zod@4.6.5))
+      ai: 7.0.138(zod@4.6.7)
+      eve: 0.78.0(ai@7.0.138(zod@4.6.7))
 
   '@vercel/functions@3.9.11(@aws-sdk/credential-provider-web-identity@3.972.49)(ws@8.22.0)':
     dependencies:
@@ -3961,12 +3961,12 @@ snapshots:
 
   acorn@8.19.0: {}
 
-  ai@7.0.138(zod@4.6.5):
+  ai@7.0.138(zod@4.6.7):
     dependencies:
-      '@ai-sdk/gateway': 4.0.111(zod@4.6.5)
+      '@ai-sdk/gateway': 4.0.111(zod@4.6.7)
       '@ai-sdk/provider': 4.0.27
-      '@ai-sdk/provider-utils': 5.0.59(zod@4.6.5)
-      zod: 4.6.5
+      '@ai-sdk/provider-utils': 5.0.59(zod@4.6.7)
+      zod: 4.6.7
 
   ansi-align@3.0.1:
     dependencies:
@@ -4282,9 +4282,9 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.9
 
-  eve@0.78.0(ai@7.0.138(zod@4.6.5)):
+  eve@0.78.0(ai@7.0.138(zod@4.6.7)):
     dependencies:
-      ai: 7.0.138(zod@4.6.5)
+      ai: 7.0.138(zod@4.6.7)
       nitro: 3.0.260903-beta
       undici: 8.10.2
 
@@ -4854,9 +4854,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
-  posthog-node@5.55.0(rxjs@7.8.2):
+  posthog-node@5.55.3(rxjs@7.8.2):
     dependencies:
-      '@posthog/core': 1.57.0
+      '@posthog/core': 1.58.1
     optionalDependencies:
       rxjs: 7.8.2
 
@@ -5353,4 +5353,4 @@ snapshots:
 
   zod@4.5.4: {}
 
-  zod@4.6.5: {}
+  zod@4.6.7: {}
