@@ -30,3 +30,7 @@ Review event samples before production. Document retention and access. Exclude t
 ## High-risk actions
 
 Do not enable purchases, payments, signatures, contract acceptance, permission/role changes, destructive deletion, export/sharing of private data, or third-party messages merely because the user is authenticated. Design a separate risk-appropriate workflow.
+
+## Dependency security
+
+Keep `pnpm-workspace.yaml` security overrides and the lockfile together. Undici 7.x resolves to at least 7.30.1, Eve's Undici 8.x resolves to 8.12.2, and vulnerable Zod 4.x versions resolve to 4.6.7. These floors address HTTP-client security issues and oversized-collection validation exhaustion without changing package major versions. Remove overrides only after the upstream dependency graph resolves to safe versions; verify with `pnpm audit` and `pnpm check`.
