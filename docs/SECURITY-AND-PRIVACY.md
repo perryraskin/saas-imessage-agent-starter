@@ -31,6 +31,12 @@ Review event samples before production. Document retention and access. Exclude t
 
 Do not enable purchases, payments, signatures, contract acceptance, permission/role changes, destructive deletion, export/sharing of private data, or third-party messages merely because the user is authenticated. Design a separate risk-appropriate workflow.
 
+## Eve session policy
+
+The agent explicitly requests Workflow retention `0`: the World deletes completed or failed run payloads and stream chunks. Completed transcripts/results may become unreadable, while run metadata may remain for the World's default period; exported traces are not deleted by this setting. Use a World that supports retention enforcement. Persist required domain records and audit history through the canonical SaaS adapter, not completed Eve transcripts.
+
+Sessions use a 30-day **idle** timeout (not an absolute lifetime), and active turns do not expire. Each continuation window pauses before another model call once reported input reaches two million tokens, including cache reads. A user-approved continuation starts a new window; channels that cannot ask fail instead. This is a token guard, not a guaranteed dollar ceiling, and subagents inherit the check rather than sharing an atomic global quota. The starter does not author subagents. Review these bounds before adding them or enabling real provider delivery.
+
 ## Dependency security
 
-Keep `pnpm-workspace.yaml` security overrides and the lockfile together. Undici 7.x resolves to at least 7.30.1, Eve's Undici 8.x resolves to 8.12.2, and vulnerable Zod 4.x versions resolve to 4.6.7. These floors address HTTP-client security issues and oversized-collection validation exhaustion without changing package major versions. Remove overrides only after the upstream dependency graph resolves to safe versions; verify with `pnpm audit` and `pnpm check`.
+Keep `pnpm-workspace.yaml` security overrides and the lockfile together. Undici 7.x resolves to at least 7.30.1, Eve's Undici 8.x resolves to 8.12.2, and vulnerable Zod 4.x versions resolve to 4.6.7. These floors address HTTP-client security issues and oversized-collection validation exhaustion without changing package major versions. The devalue override applies only below 5.9.3 so Workflow can use its required 6.x serializer. Remove overrides only after the upstream dependency graph resolves to safe versions; verify with `pnpm audit` and `pnpm check`.
