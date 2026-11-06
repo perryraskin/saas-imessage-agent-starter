@@ -39,4 +39,6 @@ Sessions use a 30-day **idle** timeout (not an absolute lifetime), and active tu
 
 ## Dependency security
 
+Use Next.js 16.4.5 or a later patched release. Version 16.4.5 fixes cache isolation, forwarded-response framing, image content detection, and internal cookie-header disclosure issues. Keep its `@next/env` and platform SWC packages aligned through the lockfile.
+
 Keep `pnpm-workspace.yaml` security overrides and the lockfile together. Undici 7.x resolves to at least 7.30.1, Eve's Undici 8.x resolves to 8.12.2, and vulnerable Zod 4.x versions resolve to 4.6.7. These floors address HTTP-client security issues and oversized-collection validation exhaustion without changing package major versions. The devalue override applies only below 5.9.3 so Workflow can use its required 6.x serializer. Remove overrides only after the upstream dependency graph resolves to safe versions; verify with `pnpm audit` and `pnpm check`.
