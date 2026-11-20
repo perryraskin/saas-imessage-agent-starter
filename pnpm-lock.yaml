@@ -24,8 +24,8 @@ importers:
         specifier: ^4.0.145
         version: 4.0.145(zod@4.6.7)
       '@posthog/mcp':
-        specifier: 1.1.0
-        version: 1.1.0(posthog-node@5.67.0(rxjs@7.8.2))
+        specifier: 1.2.3
+        version: 1.2.3(posthog-node@5.74.0(rxjs@7.8.2))
       '@vercel/connect':
         specifier: ^2.5.6
         version: 2.5.6(ai@7.0.154(zod@4.6.7))(eve@0.82.0(ai@7.0.154(zod@4.6.7)))
@@ -42,8 +42,8 @@ importers:
         specifier: ^16.4.6
         version: 16.4.6(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       posthog-node:
-        specifier: ^5.67.0
-        version: 5.67.0(rxjs@7.8.2)
+        specifier: ^5.74.0
+        version: 5.74.0(rxjs@7.8.2)
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -750,11 +750,11 @@ packages:
   '@oxc-project/types@0.155.0':
     resolution: {integrity: sha512-SeE8JPwW1xs1tHeNycjUtUBdhorRa8o4jlvjwk49R7/Z291i+4DQa7JJIgOm/TaYQZx+QrPQbVJ/9c8dMIZN8Q==}
 
-  '@posthog/core@1.67.0':
-    resolution: {integrity: sha512-Fuswh9+eX8GgE6bm5h+peQbpzRS79O17rkbop7q7MwiGxFr+WJ5s6lHecTC/U+VEgnH9eb/lgEjHY+44/Ruh3Q==}
+  '@posthog/core@1.68.0':
+    resolution: {integrity: sha512-5kjPcLquzj47qBGn52+7RRXrJJvrTHaRKgxV9izYPFzoVFEftFqSXYZF/ug+yialxDU73dR9apyi+mSaAeaXPw==}
 
-  '@posthog/mcp@1.1.0':
-    resolution: {integrity: sha512-bdNqaRF02D/hamVxF9QUPlkNBeJCi5X3YUHYWGEQbtNZngH5hQxVkdsE8jQHt0rexZ7PVKT4Jn0GOP+E4tr9eA==}
+  '@posthog/mcp@1.2.3':
+    resolution: {integrity: sha512-94xzRN3Ov9Lb6QqEji49p4Tj3d1w3Ax+j8Ed6JCIPSxq2uCziaQjAJ2VI7DitYIQmTBWawM8b9Eth01C5QDi4A==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       '@modelcontextprotocol/sdk': '>=1.26.0'
@@ -766,8 +766,8 @@ packages:
       '@modelcontextprotocol/server':
         optional: true
 
-  '@posthog/types@1.423.0':
-    resolution: {integrity: sha512-4gzXyyXKN6mktVoQQkeIlgAva054P99sUSvVGHd0/mDBYuk3gz2ZDHhPOP5C1j2cl+7Dtu2BeBJr4LfILptm/w==}
+  '@posthog/types@1.425.1':
+    resolution: {integrity: sha512-mh7jyQ5lN+XCeOnMdYkBEFtO/G0TxeLOKTWNH6E6OZjxS4nVM0Tb2xQt+FG5DCFM9qzL2HmuX6A793TwlJVDvw==}
 
   '@rolldown/binding-android-arm-eabi@1.2.15':
     resolution: {integrity: sha512-aLcgK9gIJ3YRvrrtfSBbRa27F5WrpiTaPulnFpsHPxpUHgFlSgnU4854MHwoRGEBhfRJDWCS2WQ7lIjskE9Olw==}
@@ -2251,14 +2251,17 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  posthog-node@5.67.0:
-    resolution: {integrity: sha512-54EbKUsMK5dqvvJWl/+Ce0p+fxFzK/y3Jkx3r03wwz4iGI4o8/w4fynrFtegsh+14s/BrBhew+RHuLnXCvQulw==}
+  posthog-node@5.74.0:
+    resolution: {integrity: sha512-lAnGzPVobruQ7rZe45kzcXKZAcCK3J+1dMNS3WOOdx9mnM4ECRc2WRxBdS1ncBO/h/vDtHIEmcuIr/LUxxze5w==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       '@opentelemetry/api': ^1.2.0
+      '@react-email/render': ^2.1.0
       rxjs: ^7.0.0
     peerDependenciesMeta:
       '@opentelemetry/api':
+        optional: true
+      '@react-email/render':
         optional: true
       rxjs:
         optional: true
@@ -3335,16 +3338,16 @@ snapshots:
 
   '@oxc-project/types@0.155.0': {}
 
-  '@posthog/core@1.67.0':
+  '@posthog/core@1.68.0':
     dependencies:
-      '@posthog/types': 1.423.0
+      '@posthog/types': 1.425.1
 
-  '@posthog/mcp@1.1.0(posthog-node@5.67.0(rxjs@7.8.2))':
+  '@posthog/mcp@1.2.3(posthog-node@5.74.0(rxjs@7.8.2))':
     dependencies:
-      '@posthog/core': 1.67.0
-      posthog-node: 5.67.0(rxjs@7.8.2)
+      '@posthog/core': 1.68.0
+      posthog-node: 5.74.0(rxjs@7.8.2)
 
-  '@posthog/types@1.423.0': {}
+  '@posthog/types@1.425.1': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.15':
     optional: true
@@ -3441,7 +3444,7 @@ snapshots:
       commander: 8.3.0
       minimatch: 9.0.9
       piscina: 4.9.4
-      semver: 7.8.5
+      semver: 7.8.6
       slash: 3.0.0
       source-map: 0.7.6
       tinyglobby: 0.2.17
@@ -4089,7 +4092,7 @@ snapshots:
   binary-version-check@6.1.0:
     dependencies:
       binary-version: 7.1.0
-      semver: 7.8.5
+      semver: 7.8.6
       semver-truncate: 3.0.0
     optional: true
 
@@ -4958,9 +4961,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
-  posthog-node@5.67.0(rxjs@7.8.2):
+  posthog-node@5.74.0(rxjs@7.8.2):
     dependencies:
-      '@posthog/core': 1.67.0
+      '@posthog/core': 1.68.0
     optionalDependencies:
       rxjs: 7.8.2
 
@@ -5065,7 +5068,7 @@ snapshots:
 
   semver-truncate@3.0.0:
     dependencies:
-      semver: 7.8.5
+      semver: 7.8.6
     optional: true
 
   semver@7.8.5: {}
