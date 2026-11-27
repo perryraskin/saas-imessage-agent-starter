@@ -24,15 +24,15 @@
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.154",
     "@posthog/mcp": "1.2.3",
-    "@vercel/connect": "^2.5.6",
-    "ai": "^7.0.154",
-    "eve": "^0.82.0",
+    "@vercel/connect": "^2.9.5",
+    "ai": "^7.0.181",
+    "eve": "^1.4.0",
     "jose": "^6.2.18",
     "next": "^16.4.6",
     "posthog-node": "^5.74.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "workflow": "^5.5.0",
+    "workflow": "^5.8.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {
